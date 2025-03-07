@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Transactions</title>
+  <link rel="stylesheet" th:href="@{templates/style/transactionStyle.css}">
+</head>
+<body>
+
+  <div class="dropdown">
+    <label for="tables-menu">Select table to view: </label>
+    <select name="tables" id="tables-menu">
+      <option value="transactions">Transactions</option>
+      <option value="/">Users</option>
+      <option value="accounts">Accounts</option>
+    </select>
+  </div>
+
+  <div class="empty" th:if="${transactions.isEmpty()}">
+    No transactions found
+  </div>
+
+  <div class="wrap" th:if="${transactions.size() > 0}">
+    <div class="tables">
+      <div class="table__header">
+        <span class="table__header--id">ID</span>
+        <span class="table__header--holder">ACCOUNT HOLDER</span>
+        <span class="table__header--amount">AMOUNT</span>
+        <span class="table__header--currency">CURRENCY</span>
+      </div>
+
+      <div class="table__body" >
+
+        <ul class="table__body__transactions">
+
+          <li class="table__body__transactions__transaction" th:each="transaction : ${transactions}">
+            <span class="table__body__transactions__transaction--id" th:text="${transaction.getId()}"></span>
+            <span class="table__body__transactions__transaction--name" th:text="${transaction.account.getUser().getUsername()}"></span>
+            <span class="table__body__transactions__transaction--amount" th:text="${transaction.getAmount()}"></span>
+            <span class="table__body__transactions__transaction--currency" th:text="${transaction.getCurrency()}"></span>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+<script>
+  let select = document.getElementById("tables-menu");
+
+  select.addEventListener( "change", (e) => {
+    window.location.href = `${e.target.value}`;
+
+  } )
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>topUp</title>
+    <link rel="stylesheet" th:href="@{templates/style/topUp.css }">
+</head>
+<body>
+
+
+<div class="container">
+    <div class="select__users">
+        <label for="users">Select user: </label>
+        <select id="users">
+            <option>Default</option>
+            <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.username}"></option>
+
+        </select>
+    </div>
+
+
+
+    <div class="select__users">
+        <label for="accounts">Select account: </label>
+        <select id="accounts" >
+            <option>Default</option>
+            <option value="UAH">UAH</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+    </div>
+
+    <div class="input__amount">
+        <label for="amount">Amount:
+            <input type="text" id="amount" placeholder="Enter amount" value="0">
+        </label>
+    </div>
+
+</div>
+
+<div class="btn">
+    <button id="submit">Top up</button>
+</div>
+
+
+<script>
+
+    let btn = document.getElementById('submit');
+    let userNewBalance = 0;
+
+    btn.addEventListener('click', fetchAccount)
+
+    async function fetchAccount() {
+
+        let userIdSelectValue = document.getElementById('users').value;
+        let userAccountCurrencyValue = document.getElementById('accounts').value;
+        let amountValue = +document.getElementById('amount').value;
+
+        let newTransaction = {
+            amount: "+" + amountValue,
+            currency: userAccountCurrencyValue,
+            userId: userIdSelectValue
+        };
+
+        let updatedAccount;
+
+        await fetch('/getUserAcc?userId=' + userIdSelectValue + `&currency=` + userAccountCurrencyValue)  // Адрес контроллера
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Ошибка сети');
+                }
+                return response.json();
+            })
+            .then(data => {
+                let balance = data[0].balance;
+                userNewBalance = parseFloat(balance + amountValue);
+
+                newTransaction.account = data[0].id;
+
+                data[0].balance = userNewBalance;
+                updatedAccount = data[0];
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Request failed ');
+            });
+
+        await fetch('/topUp', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Указываем, что отправляем JSON
+            },
+            body: JSON.stringify(updatedAccount)  // Передаем данные для обновления
+        })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                alert('Ошибка при обновлении аккаунта');
+            });
+
+        await fetch('/createTransaction', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',  // Указываем, что отправляем JSON
+            },
+            body: JSON.stringify(newTransaction)  // Передаем данные для обновления
+        })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Request failed');
+            });
+
+        window.location.href = "/transactions"
+
+    }
+
+
+</script>
+
+</body>
+</html>

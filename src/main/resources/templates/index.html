@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start page</title>
+    <link rel="stylesheet" th:href="@{templates/style/index.css}">
+</head>
+<body>
+
+    <div class="dropdown">
+        <label for="tables-menu">Select table to view: </label>
+        <select name="tables" id="tables-menu">
+            <option value="/">Users</option>
+            <option value="accounts">Accounts</option>
+            <option value="transactions">Transactions</option>
+        </select>
+    </div>
+
+    <div class="table">
+        <div class="table__header">
+            <span class="table__header--id">ID</span>
+            <span class="table__header--name">NAME</span>
+            <span class="table__header--email">EMAIL</span>
+        </div>
+
+
+        <div class="table__body">
+            <ul class="table__body__users">
+                <li class="table__body__users__user" th:each="user : ${users}">
+                    <span class="table__body__users__user--id" th:text="${user.getId()}"></span>
+                    <span class="table__body__users__user--name" th:text="${user.getUsername()}"></span>
+                    <span class="table__body__users__user--email" th:text="${user.getEmail()}"></span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let select = document.getElementById("tables-menu");
+        select.addEventListener( "change", (e) => {
+            // console.log( e.target.value )
+            window.location.href = `${e.target.value}`;
+
+        } )
+    </script>
+
+</body>
+</html>

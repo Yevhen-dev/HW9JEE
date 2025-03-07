@@ -1,0 +1,81 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu{
+    padding: 10px 20px;
+    display: flex;
+}
+
+.menu__dropdown {
+    width: 40%;
+}
+
+
+
+.dropdown,
+.table {
+    padding: 10px 20px;
+}
+
+#tables-menu {
+    width: 20%;
+    padding: 5px;
+}
+
+
+.empty {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.table__header,
+.table__body__transactions__transaction {
+    display: flex;
+}
+
+.table__header {
+    padding-bottom: 10px;
+}
+
+.table__header--id,
+.table__body__transactions__transaction--id{
+    width: 20%;
+    text-align: center;
+}
+
+.table__header--holder,
+.table__body__transactions__transaction--name {
+    width: 25%;
+    text-align: center;
+}
+
+.table__header--amount,
+.table__body__transactions__transaction--amount {
+    width: 30%;
+    text-align: center;
+}
+
+.table__header--currency,
+.table__body__transactions__transaction--currency {
+    width: 30%;
+    text-align: center;
+}
+
+.table__body__transactions{
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.table__body__transactions__transaction {
+    padding: 5px 0;
+}
+
+.table__body__transactions__transaction:nth-child(odd) {
+    background-color: rgb(197, 193, 193);
+}

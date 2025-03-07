@@ -1,0 +1,65 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.dropdown,
+.table {
+    padding: 10px 20px;
+}
+
+#tables-menu {
+    width: 20%;
+    padding: 5px;
+}
+
+.table__header,
+.table__body__users__user {
+    display: flex;
+}
+
+.table__header {
+    padding-bottom: 10px;
+}
+
+.table__header--id,
+.table__body__users__user--id {
+    width: 10%;
+    text-align: center;
+}
+
+.table__header--name,
+.table__body__users__user--name {
+    width: 20%;
+    text-align: center;
+}
+
+.table__header--email,
+.table__body__users__user--email {
+    width: 30%;
+    text-align: center;
+}
+
+.table__header__actions,
+.table__body__users__user__btn {
+    width: 40%;
+    text-align: center;
+}
+
+.table__body__users {
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.table__body__users__user {
+    padding: 5px 0;
+}
+
+.table__body__users__user:nth-child(odd) {
+    background-color: rgb(197, 193, 193);
+}
+

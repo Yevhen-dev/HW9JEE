@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.menu{
+    padding: 10px 20px;
+    display: flex;
+}
+
+.menu__dropdown {
+    width: 40%;
+}
+
+.menu__actions {
+    width: 30%;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+.dropdown,
+.table {
+    padding: 10px 20px;
+}
+
+#tables-menu {
+    width: 50%;
+    padding: 5px;
+}
+
+#topUp {
+    padding: 5px 10px;
+}
+
+.table__header,
+.table__body__accounts__account {
+    display: flex;
+}
+
+.table__header {
+    padding-bottom: 10px;
+}
+
+.table__header--id,
+.table__body__accounts__account--id {
+    width: 20%;
+    text-align: center;
+}
+
+.table__header--name,
+.table__body__accounts__account--name {
+    width: 20%;
+    text-align: center;
+}
+
+.table__header--currency,
+.table__body__accounts__account--currency {
+    width: 30%;
+    text-align: center;
+}
+
+.table__header--balance,
+.table__body__accounts__account--balance {
+    width: 40%;
+    text-align: center;
+}
+
+.table__body__accounts{
+    flex-direction: column;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.table__body__accounts__account {
+    padding: 5px 0;
+}
+
+.table__body__accounts__account:nth-child(odd) {
+    background-color: rgb(197, 193, 193);
+}
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+    <link rel="stylesheet" th:href="@{templates/style/accounts.css  }">
+</head>
+<body>
+
+  <div class="menu">
+      <div class="menu__dropdown">
+          <label for="tables-menu">Select table to view: </label>
+          <select name="tables" id="tables-menu">
+              <option value="accounts">Accounts</option>
+              <option value="/">Users</option>
+              <option value="transactions">Transactions</option>
+          </select>
+      </div>
+
+      <div class="menu__actions" >
+          <button id="topUp" class="menu__actions__topUp-btn" value="topUp">Top Up</button>
+      </div>
+  </div>
+
+  <div class="table">
+    <div class="table__header">
+      <span class="table__header--id">ACCOUNT ID</span>
+      <span class="table__header--name">HOLDER NAME</span>
+      <span class="table__header--currency">CURRENCY</span>
+      <span class="table__header--balance">BALANCE</span>
+    </div>
+
+
+    <div class="table__body">
+      <ul class="table__body__accounts">
+        <li class="table__body__accounts__account" th:each="account : ${accounts}">
+          <span class="table__body__accounts__account--id" th:text="${account.getId()}"></span>
+          <span class="table__body__accounts__account--name" th:text="${account.getUser().getUsername()}"></span>
+          <span class="table__body__accounts__account--currency" th:text="${account.getCurrency()}"></span>
+          <span class="table__body__accounts__account--balance" th:text="${account.getBalance()}"></span>
+
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+<script>
+
+  let select = document.getElementById("tables-menu");
+
+  let topUp = document.getElementById("topUp");
+
+
+  select.addEventListener( "change", (e) => {
+    // console.log( e.target.value )
+    window.location.href = `${e.target.value}`;
+
+  } )
+
+  topUp.addEventListener( "click", (e) => {
+    window.location.href = `${e.target.value}`;
+  })
+
+</script>
+
+</body>
+</html>
