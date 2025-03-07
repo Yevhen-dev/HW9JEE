@@ -15,9 +15,4 @@ public class CurrencyRateController {
         this.currencyRateService = currencyRateService;
     }
 
-//    @GetMapping("/rates")
-//    public String accounts(Model model) {
-//        model.addAttribute("rates", currencyRateService.getAllCurrencyRates());
-//        return "accounts";
-//    }
 }

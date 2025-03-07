@@ -21,9 +21,6 @@ public class Account {
     @JoinColumn(name = "user_id")
     private User user;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn( name = "rate_id")
-//    private CurrencyRate cr;
 
     @OneToMany( fetch = FetchType.LAZY, mappedBy = "account")
     private List<Transaction> transactions;
@@ -67,14 +64,6 @@ public class Account {
     public void setUser(User user) {
         this.user = user;
     }
-
-//    public CurrencyRate getCurrencyRate() {
-//        return cr;
-//    }
-//
-//    public void setCurrencyRate(CurrencyRate cr) {
-//        this.cr = cr;
-//    }
 
     public List<Transaction> getTransactions() {
         return transactions;

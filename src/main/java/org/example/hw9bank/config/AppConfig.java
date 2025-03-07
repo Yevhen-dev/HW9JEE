@@ -57,19 +57,16 @@ public class AppConfig implements WebMvcConfigurer {
                 Account johnUAH = new Account(1000.0, "UAH");
                 johnUAH.setUser(john);
                 johnUAH.setCurrency(crUAH.getCurrency());
-//                johnUAH.setCurrencyRate(crUAH);
                 accountService.addAccount(johnUAH);
 
                 Account donaldUAH = new Account(15600.0, "UAH");
                 donaldUAH.setUser(donald);
                 donaldUAH.setCurrency(crUAH.getCurrency());
-//                donaldUAH.setCurrencyRate(crUAH);
                 accountService.addAccount(donaldUAH);
 
                 Account bobUAH = new Account(28000.0, "UAH");
                 bobUAH.setUser(bob);
                 bobUAH.setCurrency(crUAH.getCurrency());
-//                bobUAH.setCurrencyRate(crUAH);
                 accountService.addAccount(bobUAH);
 
 
@@ -77,19 +74,16 @@ public class AppConfig implements WebMvcConfigurer {
                 Account johnUSD = new Account(600.0, "USD");
                 johnUSD.setUser(john);
                 johnUSD.setCurrency(crUSD.getCurrency());
-//                johnUSD.setCurrencyRate(crUSD);
                 accountService.addAccount(johnUSD);
 
                 Account donaldUSD = new Account(1200.0, "USD");
                 donaldUSD.setUser(donald);
                 donaldUSD.setCurrency(crUSD.getCurrency());
-//                donaldUSD.setCurrencyRate(crUSD);
                 accountService.addAccount(donaldUSD);
 
                 Account bobUSD = new Account(2800.0, "USD");
                 bobUSD.setUser(bob);
                 bobUSD.setCurrency(crUSD.getCurrency());
-//                bobUSD.setCurrencyRate(crUSD);
                 accountService.addAccount(bobUSD);
 
 
@@ -98,13 +92,11 @@ public class AppConfig implements WebMvcConfigurer {
                 Account johnEUR = new Account(700.0, "EUR");
                 johnEUR.setUser(john);
                 johnEUR.setCurrency(crEUR.getCurrency());
-//                johnEUR.setCurrencyRate(crEUR);
                 accountService.addAccount(johnEUR);
 
                 Account bobEUR = new Account(3500.0, "EUR");
                 bobEUR.setUser(bob);
                 bobEUR.setCurrency(crEUR.getCurrency());
-//                bobEUR.setCurrencyRate(crEUR);
                 accountService.addAccount(bobEUR);
 
 

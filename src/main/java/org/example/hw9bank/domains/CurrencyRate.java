@@ -20,9 +20,6 @@ public class CurrencyRate {
 
     private Double sell;
 
-//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "cr")
-//    private Set<Account> accounts;
-
     public CurrencyRate() {
     }
 
@@ -64,11 +61,4 @@ public class CurrencyRate {
         this.sell = sell;
     }
 
-//    public Set<Account> getAccounts() {
-//        return accounts;
-//    }
-//
-//    public void setAccounts(Set<Account> accounts) {
-//        this.accounts = accounts;
-//    }
 }
